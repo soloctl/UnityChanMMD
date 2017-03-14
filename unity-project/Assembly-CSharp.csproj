@@ -46,23 +46,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\UnityChan\Scripts\AutoBlink.cs" />
-     <Compile Include="Assets\UnityChan\Scripts\AutoBlinkforSD.cs" />
-     <Compile Include="Assets\UnityChan\Scripts\CameraController.cs" />
-     <Compile Include="Assets\UnityChan\Scripts\FaceUpdate.cs" />
-     <Compile Include="Assets\UnityChan\Scripts\IKCtrlRightHand.cs" />
-     <Compile Include="Assets\UnityChan\Scripts\IKLookAt.cs" />
-     <Compile Include="Assets\UnityChan\Scripts\IdleChanger.cs" />
-     <Compile Include="Assets\UnityChan\Scripts\RandomWind.cs" />
-     <Compile Include="Assets\UnityChan\Scripts\SpringBone.cs" />
-     <Compile Include="Assets\UnityChan\Scripts\SpringCollider.cs" />
-     <Compile Include="Assets\UnityChan\Scripts\SpringManager.cs" />
-     <Compile Include="Assets\UnityChan\Scripts\ThirdPersonCamera.cs" />
-     <Compile Include="Assets\UnityChan\Scripts\UnityChanControlScriptWithRgidBody.cs" />
      <Compile Include="Assets\chan_mmd\Scripts\Softness.cs" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_eye.shader" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
-     <None Include="Assets\README_SD_UnityChan.txt" />
+     <None Include="Assets\UnityChan\README_SD_UnityChan.txt" />
      <None Include="Assets\chan_mmd\Models\Yo_Miku\Yo_Miku_Ver1.3.0_Normal.xml" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\readme.txt" />
      <None Include="Assets\UnityChan\Models\UnityChanShader\Shader\Unitychan_chara_fuku_ds.shader" />
