@@ -528,9 +528,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Root: {fileID: 879993705}
   m_UpdateRate: 60
-  m_Damping: 0.05
-  m_Elasticity: 0.04
-  m_Stiffness: 0
+  m_Damping: 0.17
+  m_Elasticity: 0.01
+  m_Stiffness: 0.02
   m_Inert: 0
   m_Radius: 0
   m_EndLength: 0
@@ -710,9 +710,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Root: {fileID: 1561003416}
   m_UpdateRate: 60
-  m_Damping: 0.05
-  m_Elasticity: 0.04
-  m_Stiffness: 0
+  m_Damping: 0.17
+  m_Elasticity: 0.01
+  m_Stiffness: 0.02
   m_Inert: 0
   m_Radius: 0
   m_EndLength: 0
