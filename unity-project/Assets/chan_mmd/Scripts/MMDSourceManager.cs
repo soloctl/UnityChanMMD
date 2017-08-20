@@ -23,7 +23,7 @@ public class MMDSourceManager : MonoBehaviour {
 	}
 
 	public void PlayMMD() {
-//		PlayerAnimator.Play ("");
+		PlayerAnimator.speed = 1f;
 		AudioPlayer.Play ();
 	}
 
@@ -45,5 +45,10 @@ public class MMDSourceManager : MonoBehaviour {
 	private void SetQianBenYing() {
 		PlayerAnimator.runtimeAnimatorController = QianBenYing;
 		AudioPlayer.clip = QianBenYingClip;
+	}
+
+	public void Stop() {
+		PlayerAnimator.speed = 0;
+		AudioPlayer.Stop ();
 	}
 }

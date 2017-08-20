@@ -590,11 +590,12 @@ PlayerSettings:
     daydream:
       daydreamIconForeground: {fileID: 0}
       daydreamIconBackground: {fileID: 0}
-  cloudServicesEnabled: {}
+  cloudServicesEnabled:
+    UNet: 1
   facebookSdkVersion: 7.9.1
   apiCompatibilityLevel: 2
-  cloudProjectId: 
-  projectName: 
-  organizationId: 
+  cloudProjectId: f2584e1e-5227-45a9-b1fb-006fc9cba414
+  projectName: Unity Chan MMD
+  organizationId: solomonli
   cloudEnabled: 0
   enableNewInputSystem: 0
