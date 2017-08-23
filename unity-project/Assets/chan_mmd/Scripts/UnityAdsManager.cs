@@ -9,7 +9,7 @@ public class UnityAdsManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		Advertisement.Initialize (Values.GameId);
 	}
 
 	public bool UnityAdsIsDefaultPlacementReady() {

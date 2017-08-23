@@ -75,7 +75,7 @@ public class MMDSourceManager : MonoBehaviour {
 		AudioPlayer.clip = QianBenYingClip;
 	}
 
-	private void Stop() {
+	public void Stop() {
 		PlayerAnimator.speed = 0;
 		AudioPlayer.Stop ();
 	}
