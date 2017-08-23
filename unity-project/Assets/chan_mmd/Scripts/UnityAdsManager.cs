@@ -5,34 +5,63 @@ using UnityEngine.Advertisements;
 
 public class UnityAdsManager : MonoBehaviour {
 
+
+
 	// Use this for initialization
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	public bool UnityAdsIsDefaultPlacementReady() {
-		return Advertisement.isInitialized && Advertisement.IsReady ();
+//		Debug.Log ("Ad ready");
+		if (Advertisement.isInitialized && Advertisement.IsReady ()) {
+			return true;
+		} else {
+			Debug.Log (Advertisement.GetPlacementState());
+			return false;
+		}
 	}
 
 	public bool UnityAdsIsReady(string placement) {
-		return Advertisement.isInitialized && Advertisement.IsReady (placement);
+		if (Advertisement.isInitialized && Advertisement.IsReady (placement)) {
+			return true;
+		} else {
+			Debug.Log (Advertisement.GetPlacementState());
+			return false;
+		}
 	}
 
 	public void UnityAdsShowDefaultPlacement() {
 		if (UnityAdsIsDefaultPlacementReady ()) {
-			Advertisement.Show ();
+			Debug.Log ("Ad start");
+			UIManager.Instance ().OnAdsShown ();
+			ShowOptions options = new ShowOptions();
+			options.resultCallback = UnityAdsResultCallback;
+			Advertisement.Show (options);
 		}
 	}
 
 	public void UnityAdsShow(string placement) {
 		if (UnityAdsIsReady (placement)) {
-			Advertisement.Show (placement);
+			Debug.Log ("Ad start, " + placement);
+			UIManager.Instance ().OnAdsShown ();
+			ShowOptions options = new ShowOptions();
+			options.resultCallback = UnityAdsResultCallback;
+			Advertisement.Show (placement, options);
 		}
 	}
 
+	private void UnityAdsResultCallback(ShowResult result) {
+		switch (result) {
+		case ShowResult.Finished:
+			MMDSourceManager.Instance ().AdsCompletelyWatched ();
+			break;
+		}
+	}
+
+	public static UnityAdsManager Instance() {
+		GameObject go = GameObject.FindGameObjectWithTag(Values.TagUnityAdsManager);
+		UnityAdsManager uam = go.GetComponent<UnityAdsManager> ();
+		return uam;
+	}
 }

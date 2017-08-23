@@ -12,9 +12,12 @@ public class MMDSourceManager : MonoBehaviour {
 	public AudioClip QianBenYingClip;
 	public AudioSource AudioPlayer;
 
+	enum Dances { QianBenYing, JiLeJingTu };
+	private Dances Waiting = Dances.QianBenYing;
+
 	// Use this for initialization
 	void Start () {
-		
+		Stop ();
 	}
 	
 	// Update is called once per frame
@@ -22,17 +25,42 @@ public class MMDSourceManager : MonoBehaviour {
 		
 	}
 
-	public void PlayMMD() {
+	public void WatchQianbenyingAd() {
+		Debug.Log ("Watch QianbenyingAd");
+		Stop ();
+		Waiting = Dances.QianBenYing;
+		UnityAdsManager.Instance ().UnityAdsShow (Values.PlacementId);
+	}
+
+	public void WatchJilejingtuAd() {
+		Debug.Log ("Watch QianbenyingAd");
+		Stop ();
+		Waiting = Dances.JiLeJingTu;
+		UnityAdsManager.Instance ().UnityAdsShow (Values.PlacementId);
+	}
+
+	public void AdsCompletelyWatched() {
+		switch (Waiting) {
+		case Dances.JiLeJingTu:
+			PlayJilejingtu ();
+			break;
+		case Dances.QianBenYing:
+			PlayQianbenying ();
+			break;
+		}
+	}
+
+	private void PlayMMD() {
 		PlayerAnimator.speed = 1f;
 		AudioPlayer.Play ();
 	}
 
-	public void PlayJilejingtu() {
+	private void PlayJilejingtu() {
 		SetJiLeJingTu ();
 		PlayMMD ();
 	}
 
-	public void PlayQianbenying() {
+	private void PlayQianbenying() {
 		SetQianBenYing ();
 		PlayMMD ();
 	}
@@ -47,8 +75,14 @@ public class MMDSourceManager : MonoBehaviour {
 		AudioPlayer.clip = QianBenYingClip;
 	}
 
-	public void Stop() {
+	private void Stop() {
 		PlayerAnimator.speed = 0;
 		AudioPlayer.Stop ();
+	}
+
+	public static MMDSourceManager Instance() {
+		GameObject go = GameObject.FindGameObjectWithTag(Values.TagMMDSourceManager);
+		MMDSourceManager msm = go.GetComponent<MMDSourceManager> ();
+		return msm;
 	}
 }
