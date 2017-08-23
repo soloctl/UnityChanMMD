@@ -54,7 +54,7 @@ public class UnityAdsManager : MonoBehaviour {
 	private void UnityAdsResultCallback(ShowResult result) {
 		switch (result) {
 		case ShowResult.Finished:
-			
+			MMDSourceManager.Instance ().AdsCompletelyWatched ();
 			break;
 		case ShowResult.Skipped:
 			MMDSourceManager.Instance ().AdsCompletelyWatched ();

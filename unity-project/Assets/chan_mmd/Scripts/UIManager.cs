@@ -32,8 +32,8 @@ public class UIManager : MonoBehaviour {
 
 	public void OnAdsReady() {
 		Debug.Log ("OnAdsReady");
-		QianBenYingButton.enabled = true;
-		JiLeJingTuButton.enabled = true;
+		QianBenYingButton.gameObject.SetActive (true);
+		JiLeJingTuButton.gameObject.SetActive (true);
 		buttonEnabled = true;
 	}
 
@@ -43,8 +43,8 @@ public class UIManager : MonoBehaviour {
 	}
 
 	private void DisableButtons() {
-		QianBenYingButton.enabled = false;
-		JiLeJingTuButton.enabled = false;
+		QianBenYingButton.gameObject.SetActive (false);
+		JiLeJingTuButton.gameObject.SetActive (false);
 		buttonEnabled = false;
 	}
 
