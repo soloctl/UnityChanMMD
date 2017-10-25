@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Advertisements;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +23,7 @@ public class UIManager : MonoBehaviour {
 			counting += Time.deltaTime;
 			if (counting >= interval) {
 				counting = counting - interval;
-				if (UnityAdsManager.Instance ().UnityAdsIsReady (Values.PlacementId)) {
+				if (Advertisement.isInitialized && Advertisement.IsReady (Values.PlacementId)) {
 					OnAdsReady ();
 					counting = 0f;
 				}
@@ -37,7 +38,7 @@ public class UIManager : MonoBehaviour {
 		buttonEnabled = true;
 	}
 
-	public void OnAdsShown() {
+	public void AdsStarted() {
 		Debug.Log ("OnAdsShown");
 		DisableButtons ();
 	}
